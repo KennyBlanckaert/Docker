@@ -55,7 +55,7 @@ ebo@<container_id>:~$ exit
 
 1. This docker image uses **virtualenv**. This avoids Python dependencies between different Python versions to conflict with eachother.  
    As Ubuntu 22.04 already uses the latest version of Python, this is actually not required, but it is a best practice.
-2. **StrictHostKeyChecking** is enabled by default. To disable this, execute the follwing in the docker container:
+2. **StrictHostKeyChecking** is enabled by default. To disable this, execute the following in the docker container:
     ```
     ebo@<container_id>:~$ export ANSIBLE_HOST_KEY_CHECKING=False
     ```
