@@ -1,0 +1,10 @@
+.vscode
+
+# Directories shared to container
+inventories/*
+playbooks/*
+collections/*
+roles/*
+vault/*
+
+!.gitkeep
