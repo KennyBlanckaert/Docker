@@ -44,9 +44,7 @@ $ docker ps -a
 $ docker exec -it <container_id> /bin/bash
 
 # Always activate the virtual environment when running Ansible
-ansible@<container_id>:~$ source bin/activate
 ansible@<container_id>:~$ ansible-playbook -i <inventory> <playbook> [ --vault-id=<vault> ]
-ansible@<container_id>:~$ deactivate
 ansible@<container_id>:~$ exit
 ```
 
