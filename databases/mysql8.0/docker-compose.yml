@@ -10,7 +10,7 @@ services:
       --character-set-server=utf8mb4
       --collation-server=utf8mb4_bin
       --default-storage-engine=InnoDB
-      --authentication-policy=mysql_native_password,,
+#      --authentication-policy=mysql_native_password,,  # MySQL client 5.7 compatibility
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
