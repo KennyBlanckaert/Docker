@@ -1,4 +1,4 @@
-Tested with: ![Docker](https://img.shields.io/badge/20.10-Docker-blue)   
+Tested with: ![Docker](https://img.shields.io/badge/23.0-Docker-blue)   
 Installs latest image binaries: ![Python](https://img.shields.io/badge/3.11-Python-9cf) ![Ansible](https://img.shields.io/badge/7.3-Ansible-red) ![Ansible Core](https://img.shields.io/badge/2.14-Ansible%20Core-orange)
 
 &ensp;&ensp;  
