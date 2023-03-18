@@ -44,10 +44,10 @@ $ docker ps -a
 $ docker exec -it <container_id> /bin/bash
 
 # Always activate the virtual environment when running Ansible
-ebo@<container_id>:~$ source bin/activate
-ebo@<container_id>:~$ ansible-playbook -i <inventory> <playbook> [ --vault-id=<vault> ]
-ebo@<container_id>:~$ deactivate
-ebo@<container_id>:~$ exit
+ansible@<container_id>:~$ source bin/activate
+ansible@<container_id>:~$ ansible-playbook -i <inventory> <playbook> [ --vault-id=<vault> ]
+ansible@<container_id>:~$ deactivate
+ansible@<container_id>:~$ exit
 ```
 
 &ensp;&ensp;  
@@ -57,5 +57,5 @@ ebo@<container_id>:~$ exit
    As Ubuntu 22.04 already uses the latest version of Python, this is actually not required, but it is a best practice.
 2. **StrictHostKeyChecking** is enabled by default. To disable this, execute the following in the docker container:
     ```
-    ebo@<container_id>:~$ export ANSIBLE_HOST_KEY_CHECKING=False
+    ansible@<container_id>:~$ export ANSIBLE_HOST_KEY_CHECKING=False
     ```

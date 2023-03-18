@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.8"
 
 services:
   ansible:
@@ -8,8 +8,14 @@ services:
 
     # Make inventories, collections, roles and vault available through volumes
     volumes:
-      - ./inventories:/home/ebo/ansible/inventories
-      - ./playbooks:/home/ebo/ansible/playbooks
-      - ./collections:/home/ebo/ansible/collections
-      - ./roles:/home/ebo/ansible/roles
-      - ./vault:/home/ebo/ansible/vault
+      # Molecule
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Settings
+      - ./ansible.cfg:/home/ansible/.ansible.cfg
+      # Utilities
+      - ./inventories:/home/ansible/inventories
+      - ./playbooks:/home/ansible/playbooks
+      - ./requirements:/home/ansible/requirements
+      - ./collections:/home/ansible/collections
+      - ./roles:/home/ansible/roles
+      - ./vault:/home/ansible/vault
