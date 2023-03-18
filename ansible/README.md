@@ -57,3 +57,32 @@ ansible@<container_id>:~$ exit
     ```
     ansible@<container_id>:~$ export ANSIBLE_HOST_KEY_CHECKING=False
     ```
+   The same can be done using the *ansible.cfg* file
+   ```
+   [defaults]
+   ...
+   host_key_checking=False
+   ```
+3. When **installation of requirements** (using **`ansible-galaxy collection install -r ...`** ) is necessary, there are two options:
+   1. Download the requirements from outside the container
+      * Downloading the requirements within the collection
+         * e.g. ```cd .../ansible/collections/<collection> && ansible-galaxy collection install -r requirements.yml -p $(pwd)```
+         * Your SSH key should already be added to `git`
+         * The *ansible_collections* folder will be created, which can be re-used in- and outside of the container
+   2. Download the requirements from inside the container
+      * Downloading the requirements within the collection.
+         * e.g. ```cd ~/ansible/collections/<collection> && ansible-galaxy collection install -r requirements.yml -p $(pwd)```
+         * Your container's SSH key should be added to `git` (see *~/.ssh/id_rsa.pub*)
+         * The *ansible_collections* folder will be created, which can be re-used in- and outside of the container
+         * **Permissions** of the volumes are important in this scenario
+      * Downloading the requirements outside a collection, will download the dependencies in the *~/.ansible* by default, locally in the container only. Specify another location if necessary
+         * e.g. ```cd ~/ansible/collections/<collection> && ansible-galaxy collection install -r requirements.yml -p ~/ansible/requirements```
+         * This way, requirements can be re-used between collections/roles.
+         * **Do not forget this folder when using Ansible in an offline environment** 
+
+> **SOME NOTES**
+>    
+> 1. Downloading requirements offline is not possible.  
+> Therefor, you should always make sure they're available in the *\<collection\>/ansible_collections* folder or ~/ansible/requirements folder.
+> 2. **`roles_path`** and **`collections_paths`** are set the the *roles* and *collections* folders respectively. Both of them will also check the *requirements* folder.  
+> The same can be done using environment variables too: **`ROLES_PATH`** and **`COLLECTIONS_PATHS`** 
